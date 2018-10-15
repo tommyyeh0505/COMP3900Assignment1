@@ -1,0 +1,34 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"> 
+
+<h:head>
+	<title>List of Timesheets</title>
+</h:head> 
+<body> 
+<h:form>
+
+<h:dataTable value = "#{user.timesheets}" var = "timesheet">
+ 
+
+   <h:column>    				
+      <f:facet name = "header">Employee Name</f:facet>    				
+      <h:outputText value = "#{timesheet.employee.name}"/>
+   </h:column>   
+   <h:column>    				
+      <f:facet name = "header">TestID</f:facet>    				
+      <h:outputText value = "#{timesheet.testId}"/>
+   </h:column>   
+   <h:column>    				
+      <f:facet name = "header">Date</f:facet>    				
+      <h:outputText value = "#{timesheet.endWeek}"/>
+   </h:column>   
+</h:dataTable>	
+   	<h:commandButton value="CREATE NEW" type="submit" action="#{user.addTimesheet}" />
+</h:form>
+	
+</body> 
+</html>
+
