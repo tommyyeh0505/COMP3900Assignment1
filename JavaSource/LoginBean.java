@@ -1,7 +1,6 @@
 import javax.enterprise.context.RequestScoped;
+import javax.enterprise.context.SessionScoped;
 import javax.inject.Named;
-
-import ca.bcit.infosys.employee.EmployeeList;
 
 @Named("login")
 @RequestScoped
@@ -17,5 +16,11 @@ public class LoginBean {
         return password;
     }
     
+    public void setUsername(String s) {
+        username = s;
+    }
     
+    public void setPassword(String s) {
+        password = s;
+    }
 }

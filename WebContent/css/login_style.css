@@ -1,6 +1,7 @@
 .container {
 	text-align: center;
 	margin: auto 0;
+	display: inline-block;
 }
 
 .flex-row {
@@ -11,4 +12,12 @@
 .flex-col {
 	flex: 0 0 100%;
 	flex-direction: column;
+}
+
+.login-button-container {
+	width: 100%;
+}
+
+.login-button {
+	width: 6em;
 }

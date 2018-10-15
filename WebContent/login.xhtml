@@ -28,12 +28,14 @@
 				</div>
 			</div>
 			<div class="flex-row">
-				<div class="flex-col">
-					<h:commandButton styleClass="login-button" value="Login" />
+				<div class="flex-col login-button-container">
+					<h:commandButton styleClass="login-button" value="Login">
+						<f:ajax execute="username-input" render="output-username" />
+						<f:ajax execute="password-input" render="output-username" />
+					</h:commandButton>
 				</div>
 			</div>
 		</div>
 	</h:form>
-
 </body>
 </html>
