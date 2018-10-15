@@ -5,15 +5,35 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
 
-<h:head></h:head>
+<h:head>
+	<title>Login</title>
+	<link rel="stylesheet" href="css/login_style.css" />
+</h:head>
 <body>
-	<h1>Timesheet Management</h1>
 	<h:form>
-		<div>
-			<h:inputText a:placeholder="Username" value="#{login.username}" />
-			<h:inputSecret a:placeholder="Password" value="#{login.password}" />
-			<h:commandButton value="Login" />
+		<div class="container">
+			<div class="flex-row">
+				<div class="flex-col">
+					<h1>Timesheet Management</h1>
+				</div>
+			</div>
+			<div class="flex-row">
+				<div class="flex-col">
+					<h:inputText a:placeholder="Username" value="#{login.username}" />
+				</div>
+			</div>
+			<div class="flex-row">
+				<div class="flex-col">
+					<h:inputSecret a:placeholder="Password" value="#{login.password}" />
+				</div>
+			</div>
+			<div class="flex-row">
+				<div class="flex-col">
+					<h:commandButton styleClass="login-button" value="Login" />
+				</div>
+			</div>
 		</div>
 	</h:form>
+
 </body>
 </html>
