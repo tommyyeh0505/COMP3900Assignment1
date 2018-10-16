@@ -126,6 +126,11 @@ public class TimesheetManager implements Serializable, TimesheetCollection {
 
         return "createTimesheet";
     }
+    
+    public String edit(Timesheet t) {
+        currentTimesheet = t;
+        return "createTimesheet";
+    }
 
 
 }
