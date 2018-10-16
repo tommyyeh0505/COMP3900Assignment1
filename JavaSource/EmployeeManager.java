@@ -20,11 +20,9 @@ public class EmployeeManager implements EmployeeList {
     private List<Employee> employees = new ArrayList<Employee>();
     private Map<String, String> loginCombos = new HashMap<String, String>() {{
         put("Andy", "password");
+        put("Joe", "password");
+        put("Tommy", "password");
     }};
-    
-    private void setCurrentEmployee(Employee employee) {
-        currentEmployee = employee;
-    }
 
     @Override
     public List<Employee> getEmployees() {
@@ -34,7 +32,7 @@ public class EmployeeManager implements EmployeeList {
     @Override
     public Employee getEmployee(String name) {
         for (Employee e : employees) {
-            if (e.getName().equals(name)) {
+            if (e.getName().toLowerCase().equals(name)) {
                 return e;
             }
         }
