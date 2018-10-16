@@ -9,4 +9,12 @@
 	    <var>msg</var>
 	  </resource-bundle>
 	</application>
+	<navigation-rule>
+		<from-view-id>/login.xhtml</from-view-id>
+		<navigation-case>
+			<from-action>#{login.validateLogin}</from-action>
+			<from-outcome>login</from-outcome>
+			<to-view-id>/timesheet.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
 </faces-config>

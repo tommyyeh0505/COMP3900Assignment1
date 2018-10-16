@@ -23,4 +23,10 @@ public class LoginBean {
     public void setPassword(String s) {
         password = s;
     }
+    
+    public String validateLogin() {
+        if (username.equals("Andy") && password.equals("dog"))
+            return "login";
+        return null;
+    }
 }
