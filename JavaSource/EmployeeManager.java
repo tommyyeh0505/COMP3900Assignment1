@@ -18,7 +18,9 @@ public class EmployeeManager implements EmployeeList {
     private Employee currentEmployee;
     private Employee administrator;
     private List<Employee> employees = new ArrayList<Employee>();
-    private Map<String, String> loginCombos = new HashMap<String, String>();
+    private Map<String, String> loginCombos = new HashMap<String, String>() {{
+        put("Andy", "password");
+    }};
 
     @Override
     public List<Employee> getEmployees() {
@@ -54,9 +56,11 @@ public class EmployeeManager implements EmployeeList {
     public boolean verifyUser(Credentials credential) {
         String username = currentEmployee.getUserName();
         String password = loginCombos.get(username);
+        
+        
 
-        if (credential.getUserName().equals(username)
-                && credential.getPassword().equals(password)) {
+        if (credential.getUserName().toLowerCase().equals(username)
+                && credential.getPassword().toLowerCase().equals(password)) {
             return true;
         }
 
