@@ -10,10 +10,48 @@
 <body> 
 <h:form>
 
-	<h:inputText value="#{user.currentTimesheet.employee.name}" />
+	<h:outputText value="#{user.currentTimesheet.employee.name}" />
+	<h:outputText value="#{user.currentTimesheet.endWeek}" />
 	<h:inputText value="#{user.currentTimesheet.testId}" />
-	<h:commandButton value="Save" type="submit" action="timesheet" />
+	
+	
+	<h:dataTable value = "#{user.currentTimesheet.details}" var = "row" border="1">
+ 
 
+   <h:column>    				
+      <f:facet name = "header">Project ID</f:facet>    				
+      <h:outputText value = "#{row.projectID}"/>
+   </h:column>   
+      <h:column>    				
+      <f:facet name = "header">WP</f:facet>    				
+      <h:outputText value = "#{row.workPackage}"/>
+   </h:column>  
+   <!--  
+      <h:column>    				
+      <f:facet name = "header">Total</f:facet>    				
+      <h:outputText value = "#{row.hoursForWeek}"/>
+   </h:column>   
+   -->
+   <h:column>    				
+      <f:facet name = "header">Sat</f:facet>    				
+      <h:outputText value = "#{row.getHour(5)}"/>
+   </h:column>   
+   <h:column>    				
+      <f:facet name = "header">Project ID</f:facet>    				
+      <h:outputText value = "#{row.projectID}"/>
+   </h:column>   
+   <h:column>    				
+      <f:facet name = "header">Project ID</f:facet>    				
+      <h:outputText value = "#{row.projectID}"/>
+   </h:column>   
+      <h:column>    				
+      <f:facet name = "header">Project ID</f:facet>    				
+      <h:outputText value = "#{row.projectID}"/>
+   </h:column>   
+   
+   
+	<h:commandButton value="Save" type="submit" action="timesheet" />
+</h:dataTable>
 </h:form>
 </body> 
 </html>
