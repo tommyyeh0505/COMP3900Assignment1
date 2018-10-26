@@ -2,37 +2,30 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:f="http://java.sun.com/jsf/core"
-	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
+	xmlns:h="http://java.sun.com/jsf/html">
 
 <h:head>
 	<title>Login</title>
-	<link rel="stylesheet" href="css/login_style.css" />
 </h:head>
 <body>
 	<h:form>
-		<div class="container">
-			<div class="flex-row">
-				<div class="flex-col">
-					<h1>Timesheet Management</h1>
-				</div>
-			</div>
-			<div class="flex-row">
-				<div class="flex-col">
-					<h:inputText a:placeholder="Username" value="#{login.credentials.userName}" />
-				</div>
-			</div>
-			<div class="flex-row">
-				<div class="flex-col">
-					<h:inputSecret a:placeholder="Password" value="#{login.credentials.password}" />
-				</div>
-			</div>
-			<div class="flex-row">
-				<div class="flex-col login-button-container">
-					<h:commandButton styleClass="login-button" value="Login" action="timesheet.xhtml"/>
-				</div>
-			</div>
+		<h1>Timesheet Management</h1>
+		<div>
+			<label for="username">Username: </label>
+			<h:inputText id="username" value="#{login.credentials.userName}"
+				required="true" label="Username" />
+			<h:message for="username" />
 		</div>
+		<br />
+		<div>
+			<label for="password">Password: </label>
+			<h:inputSecret id="password" value="#{login.credentials.password}"
+				required="true" label="Password" />
+			<h:message for="password" />
+		</div>
+		<br />
+		<h:commandButton styleClass="login-button" value="Login"
+			action="#{login.login}" />
 	</h:form>
 </body>
 </html>

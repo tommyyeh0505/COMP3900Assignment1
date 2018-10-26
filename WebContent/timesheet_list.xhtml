@@ -1,0 +1,42 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html">
+
+<h:head>
+	<title>Timesheet List</title>
+</h:head>
+<body>
+	<h:form>
+		<h:commandButton value="Logout" action="#{app.logout}" />
+		<h:commandButton value="Manage Account" action="manage_account.xhtml" />
+		<h:commandButton value="Manage Users" action="manage_users.xhtml"
+			rendered="#{app.employeeManager.isAdmin}" />
+		<h:panelGrid columns="1">
+			<h:outputText
+				value="Username: #{app.employeeManager.currentEmployee.userName}" />
+			<h:outputText
+				value="Emp No: #{app.employeeManager.currentEmployee.empNumber}" />
+			<h:commandButton value="Create Timesheet"
+				action="#{app.timesheetManager.createTimesheet}" />
+		</h:panelGrid>
+		<h:dataTable value="#{app.timesheetManager.getTimesheets()}"
+			var="timesheet">
+			<f:facet name="header">
+				<h3>Timesheets</h3>
+			</f:facet>
+			<h:column>
+				<f:facet name="header">Date</f:facet>
+				<h:outputText value="#{timesheet.endWeek}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">Edit</f:facet>
+				<h:commandButton value="Edit"
+					action="#{app.timesheetManager.editTimesheet(timesheet)}" />
+			</h:column>
+		</h:dataTable>
+
+	</h:form>
+</body>
+</html>

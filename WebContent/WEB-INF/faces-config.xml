@@ -1,20 +1,76 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<faces-config version="2.2" xmlns="http://xmlns.jcp.org/xml/ns/javaee"
- xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_2.xsd">
+<faces-config version="2.2"
+	xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_2.xsd">
 
-	<application>
-	  <resource-bundle>
-	    <base-name>com.corejsf.messages</base-name>
-	    <var>msg</var>
-	  </resource-bundle>
-	</application>
 	<navigation-rule>
 		<from-view-id>/login.xhtml</from-view-id>
 		<navigation-case>
-			<from-action>#{login.validateLogin}</from-action>
 			<from-outcome>login</from-outcome>
-			<to-view-id>/timesheet.xhtml</to-view-id>
+			<to-view-id>/timesheet_list.xhtml</to-view-id>
+			<redirect />
 		</navigation-case>
 	</navigation-rule>
+	
+	<navigation-rule>
+		<from-view-id>/timesheet_list.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>logout</from-outcome>
+			<to-view-id>/login.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+            <from-outcome>createTimesheet</from-outcome>
+            <to-view-id>/create_timesheet.xhtml</to-view-id>
+            <redirect />
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>editTimesheet</from-outcome>
+            <to-view-id>/create_timesheet.xhtml</to-view-id>
+            <redirect />
+        </navigation-case>
+	</navigation-rule>
+
+	
+	<navigation-rule>
+		<from-view-id>/create_timesheet.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>saveTimesheet</from-outcome>
+			<to-view-id>/timesheet_list.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>discardTimesheet</from-outcome>
+			<to-view-id>/timesheet_list.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+	</navigation-rule>
+	
+	<navigation-rule>
+        <from-view-id>/manage_account.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>savePassword</from-outcome>
+            <to-view-id>/timesheet_list.xhtml</to-view-id>
+            <redirect />
+        </navigation-case>
+    </navigation-rule>
 </faces-config>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

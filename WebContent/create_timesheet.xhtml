@@ -1,0 +1,33 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html">
+
+<h:head>
+	<title>Create Timesheet</title>
+</h:head>
+<body>
+	<h:form>
+		<h:panelGrid columns="3">
+			<h:outputText value="Emp No: #{app.employeeManager.currentEmployee.empNumber}" />
+			<h:outputText value="Name: #{app.employeeManager.currentEmployee.name}" />
+		</h:panelGrid>
+		<h:dataTable value="#{app.timesheetManager.currentTimesheet.details}" var="row">
+			<f:facet name="header">
+				<h3>Create Timesheet</h3>
+			</f:facet>
+			<h:column>
+				<f:facet name="header">Project ID</f:facet>
+				<h:inputText value="#{row.projectID}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">WP</f:facet>
+				<h:inputText value="#{row.workPackage}" />
+			</h:column>
+		</h:dataTable>
+		<h:commandButton value="Save" action="#{app.timesheetManager.saveTimesheet}" />
+		<h:commandButton value="Discard" action="#{app.timesheetManager.discardTimesheet}" />
+	</h:form>
+</body>
+</html>

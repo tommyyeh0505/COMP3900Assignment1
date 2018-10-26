@@ -4,12 +4,44 @@
   SHAPE="32,17,0,0" model-entity="JSFProcessGroup">
   <PROCESS-ITEM ID="rules:#login.xhtml:0" NAME="item"
    PATH="/login.xhtml" model-entity="JSFProcessItem">
-   <PROCESS-ITEM-OUTPUT
-    ID="login:#{login.validateLogin}:#timesheet.xhtml" NAME="output"
-    PATH="/timesheet.xhtml" TARGET="rules:#timesheet.xhtml"
-    TITLE="#{login.validateLogin}:login" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="login::#timesheet_list.xhtml" NAME="output"
+    PATH="/timesheet_list.xhtml" TARGET="rules:#timesheet_list.xhtml"
+    TITLE="login" model-entity="JSFProcessItemOutput"/>
   </PROCESS-ITEM>
  </PROCESS-ITEM>
- <PROCESS-ITEM NAME="rules:#timesheet.xhtml" PATH="/timesheet.xhtml"
-  SHAPE="240,33,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#timesheet_list.xhtml"
+  PATH="/timesheet_list.xhtml" SHAPE="240,33,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#timesheet_list.xhtml:0" NAME="item"
+   PATH="/timesheet_list.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="logout::#login.xhtml" NAME="output"
+    PATH="/login.xhtml" TARGET="rules:#login.xhtml" TITLE="logout" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="createTimesheet::#create_timesheet.xhtml"
+    NAME="output1" PATH="/create_timesheet.xhtml"
+    TARGET="rules:#create_timesheet.xhtml" TITLE="createTimesheet" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="editTimesheet::#create_timesheet.xhtml"
+    NAME="output2" PATH="/create_timesheet.xhtml"
+    TARGET="rules:#create_timesheet.xhtml" TITLE="editTimesheet" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#create_timesheet.xhtml"
+  PATH="/create_timesheet.xhtml" SHAPE="464,17,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#create_timesheet.xhtml:0" NAME="item"
+   PATH="/create_timesheet.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="saveTimesheet::#timesheet_list.xhtml"
+    NAME="output" PATH="/timesheet_list.xhtml"
+    TARGET="rules:#timesheet_list.xhtml" TITLE="saveTimesheet" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="discardTimesheet::#timesheet_list.xhtml"
+    NAME="output1" PATH="/timesheet_list.xhtml"
+    TARGET="rules:#timesheet_list.xhtml" TITLE="discardTimesheet" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#manage_account.xhtml"
+  PATH="/manage_account.xhtml" SHAPE="32,225,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#manage_account.xhtml:0" NAME="item"
+   PATH="/manage_account.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="savePassword::#timesheet_list.xhtml"
+    NAME="output" PATH="/timesheet_list.xhtml"
+    TARGET="rules:#timesheet_list.xhtml" TITLE="savePassword" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
 </PROCESS>
