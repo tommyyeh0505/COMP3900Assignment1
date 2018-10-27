@@ -9,6 +9,8 @@
 </h:head>
 <body>
 	<h:form>
+		<h:commandButton value="Create User"
+			action="#{app.employeeManager.createUser()}" />
 		<h:dataTable value="#{app.employeeManager.getEmployees()}"
 			var="employee">
 			<f:facet name="header">
@@ -20,26 +22,26 @@
 			</h:column>
 			<h:column>
 				<f:facet name="header">Name</f:facet>
-				<h:outputText value="#{employee.name}" />
+				<h:inputText value="#{employee.name}" />
 			</h:column>
 			<h:column>
 				<f:facet name="header">Username</f:facet>
 				<h:inputText value="#{employee.userName}" />
 			</h:column>
 			<h:column>
-				<f:facet name="header">Delete</f:facet>
-				<h:commandButton value="Delete"
-					action="#{app.employeeManager.deleteUser(employee)}" />
+				<f:facet name="header">Password</f:facet>
+				<h:inputText
+					value="#{app.employeeManager.employeeDatabase.loginCombos[employee.userName]}" />
 			</h:column>
-			<!-- WILL NOT WORK WITH Map<String, String>
 			<h:column>
-                <f:facet name="header">Password</f:facet>
-                <h:inputText value="#{app.employeeDatabase.getPassword(employee)}" />
-            </h:column>
-			 -->
+				<f:facet name="header">Delete</f:facet>
+				<h:commandButton id="deleteButton" value="Delete"
+					action="#{app.employeeManager.deleteUser(employee)}" />
+				<h:message for="deleteButton" />
+			</h:column>
 		</h:dataTable>
-		<h:commandButton value="Create User" action="login.xhtml" />
-		<h:commandButton value="Save" aciton="timesheet_list.xhtml" />
+		<h:commandButton value="Save"
+			action="#{app.employeeManager.saveUsers()}" />
 	</h:form>
 </body>
 </html>

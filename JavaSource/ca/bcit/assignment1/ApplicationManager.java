@@ -12,17 +12,12 @@ import javax.inject.Named;
 @Named("app")
 @SessionScoped
 public class ApplicationManager implements Serializable {
-
+    
     @Inject
     private TimesheetManager timesheetManager;
 
     @Inject
     private EmployeeManager employeeManager;
-    
-    @PostConstruct
-    public void init() {
-        
-    }
     
     public EmployeeManager getEmployeeManager() {
         return employeeManager;

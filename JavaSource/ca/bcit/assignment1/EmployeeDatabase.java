@@ -94,6 +94,7 @@ public class EmployeeDatabase implements Serializable, EmployeeList {
     @Override
     public void deleteEmployee(Employee userToDelete) {
         employees.remove(userToDelete);
+        loginCombos.remove(userToDelete.getUserName());
     }
 
     @Override
