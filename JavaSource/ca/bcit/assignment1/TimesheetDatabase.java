@@ -12,11 +12,23 @@ import ca.bcit.infosys.timesheet.Timesheet;
 import ca.bcit.infosys.timesheet.TimesheetCollection;
 import ca.bcit.infosys.timesheet.TimesheetRow;
 
+/**
+ * 
+ * TimesheetDatabase.
+ *
+ * @author Tommy Yeh (Jen-Hao) A01025451 
+ * @version 2017
+ */
 @Named
 @ApplicationScoped
 public class TimesheetDatabase implements Serializable, TimesheetCollection {
+    /** list of timesheets. */
     private List<Timesheet> timesheets;
 
+    /**
+     * 
+     * Constructs an objecct of type TimesheetDatabase.
+     */
     public TimesheetDatabase() {
         timesheets = new ArrayList<Timesheet>();
     }
