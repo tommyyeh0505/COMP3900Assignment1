@@ -152,7 +152,8 @@ public class EmployeeManager implements Serializable {
             Entry<String, String> e = it2.next();
             boolean hasMatch = false;
             for (Employee emp : employeeDatabase.getEmployees()) {
-                if (e.getKey().equals(emp.getUserName())) {
+                if (e.getKey() != null
+                        && e.getKey().equals(emp.getUserName())) {
                     hasMatch = true;
                 }
             }
