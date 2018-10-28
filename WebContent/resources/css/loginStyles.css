@@ -1,0 +1,135 @@
+.content {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.login-container {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	justify-content: center;
+}
+
+.login-button {
+	border: none;
+	outline: none;
+	background: none;
+	color: white;
+	background-color: #1abc9c;
+	font-weight: bolder;
+	margin-top: 3em;
+	padding-top: .5em;
+	padding-bottom: .5em;
+	padding-left: 1.5em;
+	padding-right: 1.5em;
+	font-size: 18px;
+	width: 100%;
+}
+
+.login-button:hover {
+	background-color: #16a387;
+	transition: ease .5s;
+}
+
+.logo {
+	text-align: center;
+}
+
+.logo h2 {
+	color: black;
+}
+
+.logo img {
+	width: 100px;
+}
+
+label {
+	margin-top: 2em;
+	display: block;
+	width: 100%;
+	color: black;
+	text-align: left;
+	color: black;
+}
+
+span {
+	color: black;
+}
+
+.login-container {
+	width: 25%;
+	min-width: 350px;
+	padding-top: 4em;
+	padding-bottom: 4em;
+	padding-left: 2em;
+	padding-right: 2em;
+	background-color: white;
+	padding-left: 2em;
+	text-align: left;
+}
+
+.login-container span {
+	width: 100%;
+	padding-top: .5em;
+}
+
+.login-container input[type=text], input[type=password] {
+	width: 100%;
+	border: none;
+	height: 40px;
+	color: black;
+	font-size: 17px;
+	border-bottom: 2px solid #16a085;
+}
+
+.login-container input[type=text]:focus, input[type=password]:focus {
+	outline: none;
+	border-bottom: 2px solid #16a085;
+	background-color: rgb(239, 239, 239, 0.5);
+	transition: ease .5s;
+}
+
+.input-error-message {
+	color: red;
+}
+
+ul {
+	padding-top: .5em;
+	width: 100%;
+	list-style-type: none;
+}
+
+li {
+	width: 100%;
+	color: red;
+}
+
+/*
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+*/

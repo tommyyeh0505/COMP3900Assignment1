@@ -2,31 +2,47 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:f="http://java.sun.com/jsf/core"
-	xmlns:h="http://java.sun.com/jsf/html">
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
 
-<h:head>
-	<title>Login</title>
-</h:head>
 <body>
-	<h:form>
-		<h1>Timesheet Management</h1>
-		<div>
-			<label for="username">Username: </label>
-			<h:inputText id="username" value="#{login.credentials.userName}"
-				required="true" label="Username" />
-			<h:message for="username" />
-		</div>
-		<br />
-		<div>
-			<label for="password">Password: </label>
-			<h:inputSecret id="password" value="#{login.credentials.password}"
-				required="true" label="Password" />
-			<h:message for="password" />
-		</div>
-		<br />
-		<h:message for="loginButton" />
-		<h:commandButton id="loginButton" styleClass="login-button"
-			value="Login" action="#{login.login}" />
-	</h:form>
+	<ui:composition template="/template.xhtml">
+		<ui:define name="head">
+			<link rel="stylesheet" href="resources/css/loginStyles.css" />
+		</ui:define>
+
+		<ui:define name="header">
+			<h2 class="header-title">Login</h2>
+		</ui:define>
+
+		<ui:define name="content">
+			<div class="login-container">
+				<div class="logo">
+					<img src="resources/images/list.svg" />
+					<h2>Timesheet Manager</h2>
+				</div>
+
+				<label for="username">Username</label>
+				<h:inputText styleClass="login-input" id="username"
+					value="#{login.credentials.userName}" label="Username"
+					validatorMessage="Username cannot be empty" autocomplete="off">
+					<f:validateRequired />
+				</h:inputText>
+				<h:message styleClass="input-error-message" for="username" />
+
+				<label for="password">Password</label>
+				<h:inputSecret styleClass="login-input" id="password"
+					value="#{login.credentials.password}" label="Password"
+					validatorMessage="Password cannot be empty">
+					<f:validateRequired />
+				</h:inputSecret>
+				<h:message styleClass="input-error-message" for="password" />
+
+				<h:commandButton id="loginButton" styleClass="login-button"
+					value="Login" action="#{login.login}" />
+				<h:messages globalOnly="true" />
+			</div>
+		</ui:define>
+	</ui:composition>
 </body>
 </html>

@@ -1,0 +1,89 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+body * {
+	font-family: 'Montserrat', sans-serif;
+	color: #f8f8f8;
+}
+
+.grid-container {
+	display: grid;
+	grid-template-columns: 250px calc(100% - 250px);
+	grid-template-rows: 70px calc(100% - 70px);
+	grid-row: auto auto;
+	height: 100vh;
+}
+
+.header {
+	background-color: #1abc9c;
+}
+
+.header-side {
+	min-width: 200px;
+	background-color: #16a085;
+}
+
+.content-side {
+	min-width: 200px;
+	background-color: #34495e;
+}
+
+.content {
+	background-color: #f1f1f1;
+}
+
+.logo-container {
+	width: 100%;
+	height: 100%;
+}
+
+.logo-container img {
+	padding-top: 0.6em;
+	padding-right: 1em;
+	padding-left: 2.3em;
+	float: left;
+	width: 50px;
+	float: left;
+}
+
+.logo-container h2 {
+	padding-top: 0.5em;
+	font-size: 20px;
+	font-weight: lighter;
+}
+
+.header {
+	width: 100%;
+	height: 100%;
+	margin: auto;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	width: 100%;
+}
+
+.header-title {
+	padding-left: 1.5em;
+	font-weight: 300;
+}
+
+.content-side-button {
+	width: 100%;
+	background: none;
+	outline: none;
+	border: none;
+	cursor: pointer;
+	padding: 1em;
+	text-align: left;
+	font-size: 16px;
+	font-weight: bold;
+	border-bottom: 1px solid white;
+}
+
+.content-side-button:hover {
+	background-color: #2f4052;
+}
+
+/* */
