@@ -11,12 +11,14 @@
 </h:head>
 <body>
 	<h:form>
+
 		<h:panelGrid columns="3">
 			<h:outputText
 				value="Emp No: #{app.employeeManager.currentEmployee.empNumber}" />
 			<h:outputText
 				value="Name: #{app.employeeManager.currentEmployee.name}" />
 		</h:panelGrid>
+
 		<h:dataTable value="#{app.timesheetManager.currentTimesheet.details}"
 			var="row" styleClass="timesheetTable"
 			headerClass="timesheetTableHeader"
@@ -24,45 +26,48 @@
 			<f:facet name="header">
 				<h3>Create Timesheet</h3>
 			</f:facet>
+
 			<h:column>
 				<f:facet name="header">Project ID</f:facet>
-				<h:inputText id="projectID" value="#{row.projectID}"
-					onchange="submit()" converterMessage="Please enter digits only." size="4">
-					<!--  <f:convertNumber integerOnly="true" type="number" />-->
-
+				<h:inputText id="projectID" onchange="submit()"
+					value="#{row.projectID}"
+					converterMessage="Please enter digits only." size="4">
 				</h:inputText>
 				<f:facet name="footer">Total</f:facet>
 			</h:column>
 			<h:column>
 				<f:facet name="header">WP</f:facet>
 				<h:inputText id="workPackage" value="#{row.workPackage}"
-					onchange="submit()" size="4"/>
+					onchange="submit()" size="4" />
 			</h:column>
+
 			<h:column>
 				<f:facet name="header">Total</f:facet>
 				<h:outputText id="total" value="#{row.sum}" size="3">
 					<f:convertNumber maxFractionDigits="1" />
 				</h:outputText>
 			</h:column>
+
 			<h:column>
 				<f:facet name="header">Sat</f:facet>
 				<h:inputText id="sat" value="#{row.hoursForWeek[0]}"
-					onchange="submit()"  size="2">
+					onchange="submit()" size="2">
 					<f:validateLongRange minimum="0" maximum="24" />
 					<f:convertNumber maxFractionDigits="1" />
 				</h:inputText>
 				<f:facet name="footer">#{app.timesheetManager.currentTimesheet.totalDailyHours[0]}</f:facet>
 			</h:column>
+
 			<h:column>
 				<f:facet name="header">Sun</f:facet>
 				<h:inputText id="sun" value="#{row.hoursForWeek[1]}"
-					onchange="submit()"  size="2">
+					onchange="submit()" size="2">
 					<f:validateLongRange minimum="0" maximum="24" />
 					<f:convertNumber maxFractionDigits="1" />
 				</h:inputText>
 				<f:facet name="footer">#{app.timesheetManager.currentTimesheet.totalDailyHours[1]}</f:facet>
-
 			</h:column>
+
 			<h:column>
 				<f:facet name="header">Mon</f:facet>
 				<h:inputText id="mon" value="#{row.hoursForWeek[2]}"
@@ -72,6 +77,7 @@
 				</h:inputText>
 				<f:facet name="footer">#{app.timesheetManager.currentTimesheet.totalDailyHours[2]}</f:facet>
 			</h:column>
+
 			<h:column>
 				<f:facet name="header">Tue</f:facet>
 				<h:inputText id="tue" value="#{row.hoursForWeek[3]}"
@@ -122,6 +128,9 @@
 				<h:message for="fri" style="color: red"></h:message>
 			</h:column>
 		</h:dataTable>
+		
+		<h:outputLabel
+			style="color: red" rendered="#{!app.timesheetManager.currentTimesheet.validated}"><p>PROJECTID and WORKPACKAGE IS NOT UNIQUE</p></h:outputLabel>
 
 		<h:commandButton value="Add New Row"
 			action="#{app.timesheetManager.currentTimesheet.addRow}" />

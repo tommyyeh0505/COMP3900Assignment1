@@ -61,7 +61,7 @@ public class TimesheetDatabase implements Serializable, TimesheetCollection {
     public Timesheet addTimesheet(Employee e) {
         Timesheet t = new Timesheet();
         ArrayList<TimesheetRow> rows = (ArrayList<TimesheetRow>) t.getDetails();
-        for (int i = 0; i < 5; i++) {
+        for (int i = 0; i < 2 + 2 + 1; i++) {
             rows.add(new TimesheetRow());
         }
         System.out.println(e);
