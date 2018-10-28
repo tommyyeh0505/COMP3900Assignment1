@@ -1,0 +1,91 @@
+.header-container {
+	display: flex;
+	flex-direction: row;
+}
+
+.header-title {
+	padding-top: .2em;
+}
+
+.header-container input {
+	margin-left: auto;
+}
+
+.content {
+	padding-left: 1.5em;
+	padding-right: 1.5em;
+}
+
+table {
+	width: 100%;
+	padding: 1.5em;
+	background-color: white;
+}
+
+th {
+	text-align: left;
+	color: black;
+	padding-bottom: .5em;
+}
+
+td {
+	border-top: 1px solid lightgray;
+	padding-top: 1em;
+	padding-bottom: 1em;
+	color: black;
+}
+
+tr td:last-of-type {
+	width: 20px;
+	text-align: center;
+}
+
+table input[type=submit] {
+	color: black;
+}
+
+.edit-button {
+	margin-right: 2em;
+	outline: none;
+	background: none;
+	border: 2px solid #5fd0ba;
+	outline: none;
+	font-size: 16px;
+	padding: .5em;
+	padding-left: 1.5em;
+	padding-right: 1.5em;
+}
+
+.edit-button:hover {
+	background-color: #ededed;
+	transition: .3s ease;
+}
+
+/*
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+*/

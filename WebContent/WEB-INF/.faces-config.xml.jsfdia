@@ -13,8 +13,6 @@
   PATH="/timesheet_list.xhtml" SHAPE="240,33,0,0" model-entity="JSFProcessGroup">
   <PROCESS-ITEM ID="rules:#timesheet_list.xhtml:0" NAME="item"
    PATH="/timesheet_list.xhtml" model-entity="JSFProcessItem">
-   <PROCESS-ITEM-OUTPUT ID="logout::#login.xhtml" NAME="output"
-    PATH="/login.xhtml" TARGET="rules:#login.xhtml" TITLE="logout" model-entity="JSFProcessItemOutput"/>
    <PROCESS-ITEM-OUTPUT ID="createTimesheet::#create_timesheet.xhtml"
     NAME="output1" PATH="/create_timesheet.xhtml"
     TARGET="rules:#create_timesheet.xhtml" TITLE="createTimesheet" model-entity="JSFProcessItemOutput"/>
@@ -50,6 +48,12 @@
    PATH="/manage_users.xhtml" model-entity="JSFProcessItem">
    <PROCESS-ITEM-OUTPUT ID="saveUsers::#login.xhtml" NAME="output"
     PATH="/login.xhtml" TARGET="rules:#login.xhtml" TITLE="saveUsers" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:" SHAPE="48,385,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules::0" NAME="item" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="logout::#login.xhtml" NAME="output"
+    PATH="/login.xhtml" TARGET="rules:#login.xhtml" TITLE="logout" model-entity="JSFProcessItemOutput"/>
   </PROCESS-ITEM>
  </PROCESS-ITEM>
 </PROCESS>

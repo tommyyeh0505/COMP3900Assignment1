@@ -1,0 +1,40 @@
+.content {
+	padding-left: 1.5em;
+	padding-right: 1.5em;
+}
+
+.section-header {
+	display: flex;
+	border-bottom: 1px solid lightgray;
+	align-items: center;
+	justify-content: center;
+}
+
+.section-header h3 {
+	padding-top: .25em;
+	border: none;
+	padding-bottom: 0;
+}
+
+.section-header input {
+	margin-left: auto;
+}
+
+.create-user-button {
+	margin-right: 0;
+	outline: none;
+	background: none;
+	background-color: #1abc9c;
+	border: 2px solid #5fd0ba;
+	outline: none;
+	font-size: 16px;
+	padding: .5em;
+	padding-left: 1.5em;
+	padding-right: 1.5em;
+	border: 2px solid #5fd0ba;
+}
+
+.create-user-button:hover {
+	transition: .3s ease;
+	background-color: #16a085;
+}

@@ -4,40 +4,66 @@
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:h="http://java.sun.com/jsf/html">
 
-<h:head>
-	<title>Timesheet List</title>
-</h:head>
 <body>
-	<h:form>
-		<h:commandButton value="Logout" action="#{app.logout}" />
-		<h:commandButton value="Manage Account" action="manage_account.xhtml" />
-		<h:commandButton value="Manage Users" action="manage_users.xhtml"
-			rendered="#{app.employeeManager.isAdmin}" />
-		<h:panelGrid columns="1">
-		<h:outputText
-                value="Name: #{app.employeeManager.currentEmployee.name}" />
-			<h:outputText
-				value="Username: #{app.employeeManager.currentEmployee.userName}" />
-			<h:outputText
-				value="Emp No: #{app.employeeManager.currentEmployee.empNumber}" />
-			<h:commandButton value="Create Timesheet"
+	<ui:composition template="/template.xhtml">
+		<ui:define name="head">
+			<link rel="stylesheet" href="resources/css/timesheetListStyles.css" />
+		</ui:define>
+
+		<ui:define name="header">
+			<div class="header-container">
+				<h2 class="header-title">Timesheet List</h2>
+				<h:commandButton class="logout-button" value="Logout"
+					action="#{app.logout}" />
+			</div>
+		</ui:define>
+
+		<ui:define name="content-side">
+			<div class="user-pane">
+				<img class="user-img" src="resources/images/user.png" />
+				<div class="user-details">
+					<p class="username">
+						#{app.employeeManager.currentEmployee.userName}</p>
+					<p class="employee-no">Employee Number:
+						#{app.employeeManager.currentEmployee.empNumber}</p>
+				</div>
+			</div>
+
+			<h:commandButton styleClass="content-side-button"
+				value="Create Timesheet"
 				action="#{app.timesheetManager.createTimesheet}" />
-		</h:panelGrid>
-		<h:dataTable value="#{app.timesheetManager.getTimesheets()}"
-			var="timesheet">
-			<f:facet name="header">
+			<h:commandButton styleClass="content-side-button"
+				value="Manage Account" action="manage_account.xhtml" />
+			<h:commandButton styleClass="content-side-button"
+				value="Manage Users" action="manage_users.xhtml"
+				rendered="#{app.employeeManager.isAdmin}" />
+		</ui:define>
+
+		<ui:define name="content">
+			<div class="section-header">
 				<h3>Timesheets</h3>
-			</f:facet>
-			<h:column>
-				<f:facet name="header">Date</f:facet>
-				<h:outputText value="#{timesheet.endWeek}" />
-			</h:column>
-			<h:column>
-				<f:facet name="header">Edit</f:facet>
-				<h:commandButton value="Edit"
-					action="#{app.timesheetManager.editTimesheet(timesheet)}" />
-			</h:column>
-		</h:dataTable>
+			</div>
+
+			<h:dataTable value="#{app.timesheetManager.getTimesheets()}"
+				var="timesheet">
+
+				<h:column>
+					<f:facet name="header">Date</f:facet>
+					<h:outputText value="#{timesheet.endWeek}" />
+				</h:column>
+				<h:column>
+					<f:facet name="header">Edit</f:facet>
+					<h:commandButton styleClass="edit-button" value="Edit"
+						action="#{app.timesheetManager.editTimesheet(timesheet)}" />
+				</h:column>
+			</h:dataTable>
+		</ui:define>
+	</ui:composition>
+
+
+	<h:form>
+
+
 
 	</h:form>
 </body>

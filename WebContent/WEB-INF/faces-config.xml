@@ -13,27 +13,31 @@
 			<redirect />
 		</navigation-case>
 	</navigation-rule>
-	
+
 	<navigation-rule>
-		<from-view-id>/timesheet_list.xhtml</from-view-id>
+		<!-- Ignore the error below, we don't need <from view-id> -->
 		<navigation-case>
 			<from-outcome>logout</from-outcome>
 			<to-view-id>/login.xhtml</to-view-id>
 			<redirect />
 		</navigation-case>
-		<navigation-case>
-            <from-outcome>createTimesheet</from-outcome>
-            <to-view-id>/create_timesheet.xhtml</to-view-id>
-            <redirect />
-        </navigation-case>
-        <navigation-case>
-            <from-outcome>editTimesheet</from-outcome>
-            <to-view-id>/create_timesheet.xhtml</to-view-id>
-            <redirect />
-        </navigation-case>
 	</navigation-rule>
 
-	
+	<navigation-rule>
+		<from-view-id>/timesheet_list.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>createTimesheet</from-outcome>
+			<to-view-id>/create_timesheet.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>editTimesheet</from-outcome>
+			<to-view-id>/create_timesheet.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+	</navigation-rule>
+
+
 	<navigation-rule>
 		<from-view-id>/create_timesheet.xhtml</from-view-id>
 		<navigation-case>
@@ -47,24 +51,24 @@
 			<redirect />
 		</navigation-case>
 	</navigation-rule>
-	
+
 	<navigation-rule>
-        <from-view-id>/manage_account.xhtml</from-view-id>
-        <navigation-case>
-            <from-outcome>savePassword</from-outcome>
-            <to-view-id>/timesheet_list.xhtml</to-view-id>
-            <redirect />
-        </navigation-case>
-    </navigation-rule>
-    
-    <navigation-rule>
-        <from-view-id>/manage_users.xhtml</from-view-id>
-        <navigation-case>
-            <from-outcome>saveUsers</from-outcome>
-            <to-view-id>/login.xhtml</to-view-id>
-            <redirect />
-        </navigation-case>
-    </navigation-rule>
+		<from-view-id>/manage_account.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>savePassword</from-outcome>
+			<to-view-id>/timesheet_list.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+	</navigation-rule>
+
+	<navigation-rule>
+		<from-view-id>/manage_users.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>saveUsers</from-outcome>
+			<to-view-id>/login.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+	</navigation-rule>
 </faces-config>
 
 

@@ -1,0 +1,96 @@
+.header-title {
+	padding-top: .2em;
+}
+
+.content-pane {
+	padding-left: 1.5em;
+	padding-right: 1.5em;
+	background-color: #f7f7f7;
+	padding-bottom: 1.5em;
+}
+
+.save-button {
+	margin-right: 2em;
+	outline: none;
+	background: none;
+	border: 2px solid #5fd0ba;
+	outline: none;
+	font-size: 16px;
+	padding: .5em;
+	padding-left: 1.5em;
+	padding-right: 1.5em;
+	background-color: #1abc9c;
+}
+
+.save-button:hover {
+	transition: .3s ease;
+	background-color: #16a085;
+}
+
+.save-button-section {
+	border-top: 1px solid lightgray;
+	padding-top: 1.5em;
+}
+
+.section-header {
+	padding-bottom: .2em;
+}
+
+.input-pane {
+	display: table;
+	padding-bottom: 1.5em;
+}
+
+.input-section {
+	display: table-row;
+	text-align: right;
+	vertical-align: middle;
+}
+
+.input-section label {
+	color: black;
+	padding-right: .5em;
+}
+
+.input-section input[type=text], input[type=password] {
+	color: black;
+	font-size: 24px;
+	height: 30px;
+	width: 250px;
+	border: 2px solid lightgray;
+}
+
+.input-section * {
+	margin-top: 1em;
+	display: table-cell;
+}
+
+/*
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+*/

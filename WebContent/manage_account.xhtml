@@ -2,12 +2,70 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:f="http://java.sun.com/jsf/core"
-	xmlns:h="http://java.sun.com/jsf/html">
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
 
-<h:head>
-	<title>Manage Account</title>
-</h:head>
 <body>
+	<ui:composition template="/template.xhtml">
+
+		<ui:define name="head">
+			<link rel="stylesheet" href="resources/css/manageAccountStyles.css" />
+		</ui:define>
+
+		<ui:define name="header">
+			<div class="header-container">
+				<h2 class="header-title">Manage Account</h2>
+				<h:commandButton class="logout-button" value="Logout"
+					action="#{app.logout}" />
+			</div>
+		</ui:define>
+
+		<ui:define name="content-side">
+			<div class="user-pane">
+				<img class="user-img" src="resources/images/user.png" />
+				<div class="user-details">
+					<p class="username">
+						#{app.employeeManager.currentEmployee.userName}</p>
+					<p class="employee-no">Employee Number:
+						#{app.employeeManager.currentEmployee.empNumber}</p>
+				</div>
+			</div>
+
+			<h:commandButton styleClass="content-side-button" value="Back"
+				action="timesheet_list.xhtml" immediate="true" />
+		</ui:define>
+
+		<ui:define name="content">
+			<div class="content-pane">
+				<div class="section-header">
+					<h3>Change Password</h3>
+				</div>
+				<div class="input-pane">
+					<div class="input-section">
+						<label for="currentPassword">Current Password:</label>
+						<h:inputSecret id="currentPassword"
+							value="#{app.employeeManager.currentPassword}" required="true" />
+					</div>
+					<div class="input-section">
+						<label for="newPassword">New Password:</label>
+						<h:inputSecret id="newPassword"
+							value="#{app.employeeManager.newPassword}" required="true" />
+					</div>
+					<div class="input-section">
+						<label for="confirmPassword">Confirm Password:</label>
+						<h:inputSecret id="confirmPassowrd"
+							value="#{app.employeeManager.confirmPassword}" required="true" />
+					</div>
+				</div>
+				<div class="save-button-section">
+					<h:commandButton id="save" styleClass="save-button"
+						value="Save Changes" action="#{app.employeeManager.savePassword}" />
+				</div>
+			</div>
+		</ui:define>
+	</ui:composition>
+
+
 	<h:form>
 		<h:panelGrid columns="2">
 			<label for="currentPassword">Current Password:</label>
@@ -19,10 +77,8 @@
 			<label for="confirmPassword">Confirm Password:</label>
 			<h:inputSecret id="confirmPassowrd"
 				value="#{app.employeeManager.confirmPassword}" required="true" />
-			<h:commandButton value="Save"
+			<h:commandButton id="save" value="Save"
 				action="#{app.employeeManager.savePassword}" />
-			<h:commandButton value="Discard" action="timesheet_list.xhtml"
-				immediate="true" />
 		</h:panelGrid>
 	</h:form>
 </body>

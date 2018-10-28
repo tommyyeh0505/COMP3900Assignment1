@@ -78,7 +78,7 @@ body * {
 	padding: 1em;
 	text-align: left;
 	font-size: 16px;
-	font-weight: bold;
+	font-weight: 400;
 	border-bottom: 1px solid white;
 }
 
@@ -86,4 +86,112 @@ body * {
 	background-color: #2f4052;
 }
 
-/* */
+.user-pane {
+	background-color: #2a3b4c;
+}
+
+.user-img {
+	padding-top: 2em;
+	padding-bottom: 1em;
+	width: 100px;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	display: block;
+	width: 100px;
+}
+
+.user-details {
+	text-align: center;
+	padding-bottom: 1em;
+}
+
+.username {
+	font-size: 30px;
+	font-weight: 500 !important;
+}
+
+.employee-no {
+	font-size: 16px;
+	color: #cccccc !important;
+}
+
+.header-container {
+    display: flex;
+    flex-direction: row;
+}
+
+.header-container input {
+    margin-left: auto;
+}
+
+.logout-button {
+    margin-right: 2em;
+    outline: none;
+    background: none;
+    border: 2px solid #5fd0ba;
+    outline: none;
+    font-size: 16px;
+    padding: .5em;
+    padding-left: 1.5em;
+    padding-right: 1.5em;
+}
+
+.logout-button:hover {
+    transition: .3s ease;
+    background-color: #16a085;
+}
+
+.section-header {
+    padding-top: 1em;
+    padding-bottom: 1em;
+    margin-bottom: .5em;
+}
+
+.section-header h3 {
+    padding-bottom: .65em;
+    border-bottom: 1px solid lightgray;
+    color: black;
+    font-weight: bold;
+    font-size: 24px;
+}
+
+
+/* Eclipse doesn't let me scroll past end of file, so this is what I have to do
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+*/

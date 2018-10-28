@@ -4,44 +4,77 @@
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:h="http://java.sun.com/jsf/html">
 
-<h:head>
-	<title>Manage Users</title>
-</h:head>
 <body>
-	<h:form>
-		<h:commandButton value="Create User"
-			action="#{app.employeeManager.createUser()}" />
-		<h:dataTable value="#{app.employeeManager.getEmployees()}"
-			var="employee">
-			<f:facet name="header">
-				<h3>Employees</h3>
-			</f:facet>
-			<h:column>
-				<f:facet name="header">Employee No</f:facet>
-				<h:inputText value="#{employee.empNumber}" />
-			</h:column>
-			<h:column>
-				<f:facet name="header">Name</f:facet>
-				<h:inputText value="#{employee.name}" />
-			</h:column>
-			<h:column>
-				<f:facet name="header">Username</f:facet>
-				<h:inputText value="#{employee.userName}" />
-			</h:column>
-			<h:column>
-				<f:facet name="header">Password</f:facet>
-				<h:inputText
-					value="#{app.employeeManager.employeeDatabase.loginCombos[employee.userName]}" />
-			</h:column>
-			<h:column>
-				<f:facet name="header">Delete</f:facet>
-				<h:commandButton id="deleteButton" value="Delete"
-					action="#{app.employeeManager.deleteUser(employee)}" />
-				<h:message for="deleteButton" />
-			</h:column>
-		</h:dataTable>
-		<h:commandButton value="Save"
-			action="#{app.employeeManager.saveUsers()}" />
-	</h:form>
+	<ui:composition template="/template.xhtml">
+		<ui:define name="head">
+			<link rel="stylesheet" href="resources/css/manageUsersStyles.css" />
+		</ui:define>
+
+		<ui:define name="header">
+			<div class="header-container">
+				<h2 class="header-title">Manage Users</h2>
+				<h:commandButton class="logout-button" value="Logout"
+					action="#{app.logout}" />
+			</div>
+		</ui:define>
+
+		<ui:define name="content-side">
+			<div class="user-pane">
+				<img class="user-img" src="resources/images/user.png" />
+				<div class="user-details">
+					<p class="username">
+						#{app.employeeManager.currentEmployee.userName}</p>
+					<p class="employee-no">Employee Number:
+						#{app.employeeManager.currentEmployee.empNumber}</p>
+				</div>
+			</div>
+
+			<h:commandButton styleClass="content-side-button" value="Back"
+				action="timesheet_list.xhtml" immediate="true" />
+		</ui:define>
+
+		<ui:define name="content">
+			<div class="content-pane">
+				<div class="section-header">
+					<h3>Manage Users</h3>
+					<h:commandButton class="create-user-button" value="Create User"
+						action="#{app.employeeManager.createUser()}" />
+				</div>
+
+
+				<h:dataTable value="#{app.employeeManager.getEmployees()}"
+					var="employee">
+					<f:facet name="header">
+						<h3>Employees</h3>
+					</f:facet>
+					<h:column>
+						<f:facet name="header">Employee No</f:facet>
+						<h:inputText value="#{employee.empNumber}" />
+					</h:column>
+					<h:column>
+						<f:facet name="header">Name</f:facet>
+						<h:inputText value="#{employee.name}" />
+					</h:column>
+					<h:column>
+						<f:facet name="header">Username</f:facet>
+						<h:inputText value="#{employee.userName}" />
+					</h:column>
+					<h:column>
+						<f:facet name="header">Password</f:facet>
+						<h:inputText
+							value="#{app.employeeManager.employeeDatabase.loginCombos[employee.userName]}" />
+					</h:column>
+					<h:column>
+						<f:facet name="header">Delete</f:facet>
+						<h:commandButton id="deleteButton" value="Delete"
+							action="#{app.employeeManager.deleteUser(employee)}" />
+						<h:message for="deleteButton" />
+					</h:column>
+				</h:dataTable>
+				<h:commandButton value="Save"
+					action="#{app.employeeManager.saveUsers()}" />
+			</div>
+		</ui:define>
+	</ui:composition>
 </body>
 </html>
