@@ -30,15 +30,25 @@
 			<h:column>
 				<f:facet name="header">Project ID</f:facet>
 				<h:inputText id="projectID" onchange="submit()"
+					rendered="#{app.timesheetManager.checkWeek}"
 					value="#{row.projectID}"
 					converterMessage="Please enter digits only." size="4">
+				</h:inputText>
+				<h:inputText id="projectIDread" readonly="true"
+					rendered="#{!app.timesheetManager.checkWeek}"
+					value="#{row.projectID}" size="4">
 				</h:inputText>
 				<f:facet name="footer">Total</f:facet>
 			</h:column>
 			<h:column>
 				<f:facet name="header">WP</f:facet>
 				<h:inputText id="workPackage" value="#{row.workPackage}"
-					onchange="submit()" size="4" />
+					rendered="#{app.timesheetManager.checkWeek}" onchange="submit()"
+					size="4" />
+				<h:inputText id="workPackageread" value="#{row.workPackage}"
+					readonly="true" rendered="#{!app.timesheetManager.checkWeek}"
+					size="4" />
+
 			</h:column>
 
 			<h:column>
@@ -51,72 +61,111 @@
 			<h:column>
 				<f:facet name="header">Sat</f:facet>
 				<h:inputText id="sat" value="#{row.hoursForWeek[0]}"
-					onchange="submit()" size="2">
+					onchange="submit()" size="2"
+					rendered="#{app.timesheetManager.checkWeek}">
 					<f:validateLongRange minimum="0" maximum="24" />
 					<f:convertNumber maxFractionDigits="1" />
 				</h:inputText>
+				<h:inputText id="satread" value="#{row.hoursForWeek[0]}"
+					readonly="true" rendered="#{!app.timesheetManager.checkWeek}"
+					size="2" />
+
 				<f:facet name="footer">#{app.timesheetManager.currentTimesheet.totalDailyHours[0]}</f:facet>
 			</h:column>
 
 			<h:column>
 				<f:facet name="header">Sun</f:facet>
 				<h:inputText id="sun" value="#{row.hoursForWeek[1]}"
-					onchange="submit()" size="2">
+					onchange="submit()" size="2"
+					rendered="#{app.timesheetManager.checkWeek}">
 					<f:validateLongRange minimum="0" maximum="24" />
 					<f:convertNumber maxFractionDigits="1" />
 				</h:inputText>
+				<h:inputText id="sunread" value="#{row.hoursForWeek[2]}"
+					readonly="true" rendered="#{!app.timesheetManager.checkWeek}"
+					size="2" />
+
 				<f:facet name="footer">#{app.timesheetManager.currentTimesheet.totalDailyHours[1]}</f:facet>
 			</h:column>
 
 			<h:column>
 				<f:facet name="header">Mon</f:facet>
 				<h:inputText id="mon" value="#{row.hoursForWeek[2]}"
-					onchange="submit()" size="2">
+					onchange="submit()" size="2"
+					rendered="#{app.timesheetManager.checkWeek}">
 					<f:validateLongRange minimum="0" maximum="24" />
 					<f:convertNumber maxFractionDigits="1" />
 				</h:inputText>
+				<h:inputText id="monread" value="#{row.hoursForWeek[2]}"
+					readonly="true" rendered="#{!app.timesheetManager.checkWeek}"
+					size="2" />
+
 				<f:facet name="footer">#{app.timesheetManager.currentTimesheet.totalDailyHours[2]}</f:facet>
 			</h:column>
 
 			<h:column>
 				<f:facet name="header">Tue</f:facet>
 				<h:inputText id="tue" value="#{row.hoursForWeek[3]}"
-					onchange="submit()" size="2">
+					onchange="submit()" size="2"
+					rendered="#{app.timesheetManager.checkWeek}">
 					<f:validateLongRange minimum="0" maximum="24" />
 					<f:convertNumber maxFractionDigits="1" />
 				</h:inputText>
+				<h:inputText id="tueread" value="#{row.hoursForWeek[3]}"
+					readonly="true" rendered="#{!app.timesheetManager.checkWeek}"
+					size="2" />
+
 				<f:facet name="footer">#{app.timesheetManager.currentTimesheet.totalDailyHours[3]}</f:facet>
 			</h:column>
 			<h:column>
 				<f:facet name="header">Wed</f:facet>
 				<h:inputText id="wed" value="#{row.hoursForWeek[4]}"
-					onchange="submit()" size="2">
+					onchange="submit()" size="2"
+					rendered="#{app.timesheetManager.checkWeek}">
 					<f:validateLongRange minimum="0" maximum="24" />
 					<f:convertNumber maxFractionDigits="1" />
 				</h:inputText>
+				<h:inputText id="wedread" value="#{row.hoursForWeek[4]}"
+					readonly="true" rendered="#{!app.timesheetManager.checkWeek}"
+					size="2" />
+
 				<f:facet name="footer">#{app.timesheetManager.currentTimesheet.totalDailyHours[4]}</f:facet>
 			</h:column>
 			<h:column>
 				<f:facet name="header">Thu</f:facet>
 				<h:inputText id="thu" value="#{row.hoursForWeek[5]}"
-					onchange="submit()" size="2">
+					onchange="submit()" size="2"
+					rendered="#{app.timesheetManager.checkWeek}">
 					<f:validateLongRange minimum="0" maximum="24" />
 					<f:convertNumber maxFractionDigits="1" />
 				</h:inputText>
+				<h:inputText id="thuread" value="#{row.hoursForWeek[5]}"
+					readonly="true" rendered="#{!app.timesheetManager.checkWeek}"
+					size="2" />
+
 				<f:facet name="footer">#{app.timesheetManager.currentTimesheet.totalDailyHours[5]}</f:facet>
 			</h:column>
 			<h:column>
 				<f:facet name="header">Fri</f:facet>
 				<h:inputText id="fri" value="#{row.hoursForWeek[6]}"
-					onchange="submit()" size="2">
+					onchange="submit()" size="2"
+					rendered="#{app.timesheetManager.checkWeek}">
 					<f:validateLongRange minimum="0" maximum="24" />
 					<f:convertNumber maxFractionDigits="1" />
 				</h:inputText>
+				<h:inputText id="friread" value="#{row.hoursForWeek[6]}"
+					readonly="true" rendered="#{!app.timesheetManager.checkWeek}"
+					size="2" />
+
 				<f:facet name="footer">#{app.timesheetManager.currentTimesheet.totalDailyHours[6]}</f:facet>
 			</h:column>
 			<h:column>
 				<f:facet name="header">Notes</f:facet>
-				<h:inputText value="#{row.notes}" onchange="submit()" />
+				<h:inputText value="#{row.notes}" onchange="submit()"
+					rendered="#{app.timesheetManager.checkWeek}" />
+				<h:inputText value="#{row.notes}" readonly="true"
+					rendered="#{!app.timesheetManager.checkWeek}" />
+
 			</h:column>
 			<h:column>
 				<h:message for="sat" style="color: red"></h:message>
@@ -128,15 +177,23 @@
 				<h:message for="fri" style="color: red"></h:message>
 			</h:column>
 		</h:dataTable>
-		
-		<h:outputLabel
-			style="color: red" rendered="#{!app.timesheetManager.currentTimesheet.validated}"><p>PROJECTID and WORKPACKAGE IS NOT UNIQUE</p></h:outputLabel>
+
+		<h:outputLabel style="color: red"
+			rendered="#{!app.timesheetManager.currentTimesheet.validated}">
+			<p>PROJECTID and WORKPACKAGE IS NOT UNIQUE</p>
+		</h:outputLabel>
 
 		<h:commandButton value="Add New Row"
+			rendered="#{app.timesheetManager.checkWeek}"
 			action="#{app.timesheetManager.currentTimesheet.addRow}" />
 		<h:commandButton value="Save"
+			rendered="#{app.timesheetManager.checkWeek}"
+			action="#{app.timesheetManager.saveTimesheet}" />
+		<h:commandButton value="Back"
+			rendered="#{!app.timesheetManager.checkWeek}"
 			action="#{app.timesheetManager.saveTimesheet}" />
 		<h:commandButton value="Discard"
+			rendered="#{app.timesheetManager.checkWeek}"
 			action="#{app.timesheetManager.discardTimesheet}" />
 	</h:form>
 </body>

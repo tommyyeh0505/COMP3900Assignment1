@@ -1,6 +1,9 @@
 package ca.bcit.assignment1;
 
 import java.io.Serializable;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.List;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
@@ -17,7 +20,7 @@ import ca.bcit.infosys.timesheet.Timesheet;
  */
 @Named
 public class TimesheetManager implements Serializable {
-    
+
     /**
      * Injecting timesheetDatabase.
      */
@@ -26,6 +29,7 @@ public class TimesheetManager implements Serializable {
 
     /** stores current timesheet as a variable to access. */
     private Timesheet currentTimesheet;
+    private Boolean checkWeek;
 
     /**
      * forwards to edit timesheet page.
@@ -36,6 +40,8 @@ public class TimesheetManager implements Serializable {
         currentTimesheet = t;
         return "editTimesheet";
     }
+
+
 
     /**
      * Creates new Timesheet and forwards to create timesheet page.
@@ -92,7 +98,34 @@ public class TimesheetManager implements Serializable {
         currentTimesheet = t;
     }
 
-  
+    /**
+     * CheckWeek Getter
+     * @return true if timesheet week is same as current week
+     */
+    public Boolean getCheckWeek() {
+        Calendar c = new GregorianCalendar();
+        c.setTime(currentTimesheet.getEndWeek());
+        c.setFirstDayOfWeek(Calendar.SATURDAY);
+        int a = c.get(Calendar.WEEK_OF_YEAR);
 
+        Calendar b = new GregorianCalendar();
+
+        int currentDay = b.get(Calendar.DAY_OF_WEEK);
+        int leftDays = Calendar.FRIDAY - currentDay;
+        b.add(Calendar.DATE, leftDays);        
+        int d = b.get(Calendar.WEEK_OF_YEAR);
+        System.out.println("Timesheet Week= " + a + " : " + "Current Week=" + d);
+        checkWeek = (a == d);
+        return checkWeek;
+
+    }
+
+    /**
+     * Sets the checkWeek for this TimesheetManager
+     * @param checkWeek the checkWeek to set
+     */
+    public void setCheckWeek(Boolean checkWeek) {
+        this.checkWeek = checkWeek;
+    }
 
 }
