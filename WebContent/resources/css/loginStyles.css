@@ -26,11 +26,11 @@
 	padding-right: 1.5em;
 	font-size: 18px;
 	width: 100%;
+	transition: ease .5s;
 }
 
 .login-button:hover {
 	background-color: #16a387;
-	transition: ease .5s;
 }
 
 .logo {
@@ -82,13 +82,13 @@ span {
 	color: black;
 	font-size: 17px;
 	border-bottom: 2px solid #16a085;
+	transition: ease .5s;
 }
 
 .login-container input[type=text]:focus, input[type=password]:focus {
 	outline: none;
 	border-bottom: 2px solid #16a085;
 	background-color: rgb(239, 239, 239, 0.5);
-	transition: ease .5s;
 }
 
 .input-error-message {

@@ -38,3 +38,83 @@
 	transition: .3s ease;
 	background-color: #16a085;
 }
+
+table {
+	padding: 1.5em;
+	background-color: white;
+	width: 100%;
+}
+
+table * {
+	text-align: left;
+	color: black;
+}
+
+td {
+	padding-top: .5em;
+	padding-bottom: .5em;
+	padding-left: .2em;
+	padding-right: .5em;
+	color: black;
+}
+
+tr td:last-of-type {
+	width: 15px;
+	text-align: center;
+	padding-right: .2em;
+}
+
+table input[type=submit] {
+	outline: none;
+	background: none;
+	border: 2px solid #5fd0ba;
+	outline: none;
+	font-size: 16px;
+	padding: .5em;
+	padding-left: 1.5em;
+	padding-right: 1.5em;
+	transition: .3s ease;
+}
+
+table input[type=submit]:hover {
+	background-color: #ededed;
+}
+
+table input[type=text] {
+	width: 100%;
+	height: 35px;
+	border: none;
+	border-bottom: 2px solid gray;
+	transition: .5s ease;
+}
+
+table input[type=text]:focus {
+	outline: none;
+	border: none;
+	border-bottom: 2px solid #5fd0ba;
+}
+
+/*
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+*/

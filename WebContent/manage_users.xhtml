@@ -44,9 +44,6 @@
 
 				<h:dataTable value="#{app.employeeManager.getEmployees()}"
 					var="employee">
-					<f:facet name="header">
-						<h3>Employees</h3>
-					</f:facet>
 					<h:column>
 						<f:facet name="header">Employee No</f:facet>
 						<h:inputText value="#{employee.empNumber}" />
