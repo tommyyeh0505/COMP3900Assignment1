@@ -16,6 +16,10 @@ body * {
 	height: 100vh;
 }
 
+.input-error-message {
+    color: red;
+}
+
 .header {
 	background-color: #1abc9c;
 }

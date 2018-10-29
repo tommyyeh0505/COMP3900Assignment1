@@ -47,6 +47,10 @@
 	vertical-align: middle;
 }
 
+span {
+	text-align: left;
+}
+
 .input-section label {
 	color: black;
 	padding-right: .5em;
@@ -60,6 +64,7 @@
 	border: 2px solid lightgray;
 	transition: .5s ease;
 	border-radius: .1em;
+	margin-right: .5em;
 }
 
 .input-section input[type=text], input[type=password]:focus {
