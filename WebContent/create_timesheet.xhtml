@@ -49,9 +49,6 @@
 						<h:commandButton styleClass="header-button" value="Save"
 							rendered="#{app.timesheetManager.checkWeek}"
 							action="#{app.timesheetManager.saveTimesheet}" />
-						<h:commandButton styleClass="header-button" value="Back"
-							rendered="#{!app.timesheetManager.checkWeek}"
-							action="#{app.timesheetManager.saveTimesheet}" />
 						<h:commandButton styleClass="header-button" value="Discard"
 							rendered="#{app.timesheetManager.checkWeek}"
 							action="#{app.timesheetManager.discardTimesheet}" />
