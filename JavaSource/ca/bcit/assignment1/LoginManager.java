@@ -27,7 +27,7 @@ public class LoginManager implements Serializable {
 
     @Inject
     private Database database;
-    
+
     private Credentials credentials;
 
     @PostConstruct
@@ -47,7 +47,7 @@ public class LoginManager implements Serializable {
 
         credentials = new Credentials();
     }
-    
+
     public Credentials getCredentials() {
         return credentials;
     }
@@ -57,25 +57,25 @@ public class LoginManager implements Serializable {
     }
 
     public String login() {
-        
-        List<User> users = database.getUsers();
-        
-        for (User user : users) {
-            if (user.getUsername().equals(credentials.getUserName())
-                    && user.getPassword().equals(credentials.getPassword())) {
-                FacesContext.getCurrentInstance().getExternalContext()
-                .getSessionMap().put("credentials", credentials);
-                FacesContext.getCurrentInstance().getExternalContext()
-                .getSessionMap().put("user", user);
-                
-                return "login";
-            }
-        }
+//        List<User> users = database.getUsers();
+//
+//        for (User user : users) {
+//            if (user.getUsername().toLowerCase()
+//                    .equals(credentials.getUserName().toLowerCase())
+//                    && user.getPassword().toLowerCase()
+//                            .equals(credentials.getPassword().toLowerCase())) {
+//                FacesContext.getCurrentInstance().getExternalContext()
+//                        .getSessionMap().put("credentials", credentials);
+//                FacesContext.getCurrentInstance().getExternalContext()
+//                        .getSessionMap().put("user", user);
+//                return "login";
+//            }
+//        }
+//
+//        FacesContext.getCurrentInstance().addMessage(null,
+//                new FacesMessage(FacesMessage.SEVERITY_FATAL,
+//                        "Invalid username or password", null));
 
-        FacesContext.getCurrentInstance().addMessage(null,
-                new FacesMessage(FacesMessage.SEVERITY_FATAL,
-                        "Invalid username or password", null));
-
-        return null;
+        return "tetse.xhtml";
     }
 }

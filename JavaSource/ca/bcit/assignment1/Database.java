@@ -38,6 +38,7 @@ public class Database implements Serializable {
     }
     
     public List<User> getUsers() {
+        System.out.println("run");
         List<User> users = new ArrayList<User>();
         
         try {
@@ -45,15 +46,12 @@ public class Database implements Serializable {
             ResultSet result = connection.createStatement().executeQuery(
                     "SELECT * FROM users");
             
-            int index = 0;
             while (result.next()) {
-                index = 0;
-                
-                int id = result.getInt(++index);
-                String username = result.getString(++index);
-                String empName = result.getString(++index);
-                String password = result.getString(++index);
-                boolean admin = result.getBoolean(++index);
+                int id = result.getInt(1);
+                String username = result.getString(2);
+                String empName = result.getString(3);
+                String password = result.getString(4);
+                boolean admin = result.getBoolean(5);
                 User user = new User(id, username, empName, password, admin);
                 users.add(user);
             }
