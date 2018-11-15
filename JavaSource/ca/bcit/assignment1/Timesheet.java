@@ -11,23 +11,44 @@ import java.util.ArrayList;
  */
 public class Timesheet {
 
+    private int timesheetID;
     private ArrayList<TimesheetRow> rows;
     private int empNumber;
     private int weekNumber;
     private Date weekEnding;
+   
+    
+    
+    
     /**
      * Constructs an objecct of type Timesheet.
+     * @param timesheetID
      * @param rows
      * @param empNumber
      * @param weekNumber
      * @param weekEnding
      */
-    public Timesheet(ArrayList<TimesheetRow> rows, int empNumber, int weekNumber, Date weekEnding) {
+    public Timesheet(int timesheetID, ArrayList<TimesheetRow> rows, int empNumber, int weekNumber, Date weekEnding) {
         super();
+        this.timesheetID = timesheetID;
         this.rows = rows;
         this.empNumber = empNumber;
         this.weekNumber = weekNumber;
         this.weekEnding = weekEnding;
+    }
+    /**
+     * Returns the {bare_field_name} for this Timesheet.
+     * @return the timesheetID
+     */
+    public int getTimesheetID() {
+        return timesheetID;
+    }
+    /**
+     * Sets the timesheetID for this Timesheet
+     * @param timesheetID the timesheetID to set
+     */
+    public void setTimesheetID(int timesheetID) {
+        this.timesheetID = timesheetID;
     }
     /**
      * Returns the {bare_field_name} for this Timesheet.
@@ -78,6 +99,7 @@ public class Timesheet {
     public Date getWeekEnding() {
         return weekEnding;
     }
+
     /**
      * Sets the weekEnding for this Timesheet
      * @param weekEnding the weekEnding to set
@@ -85,7 +107,46 @@ public class Timesheet {
     public void setWeekEnding(Date weekEnding) {
         this.weekEnding = weekEnding;
     }
+
+    public void addNewRow(int projectID, String workPackage, String notes) {
+        final int daysWeek = 7;
+        double[] emptyHours = new double[daysWeek];
+        rows.add(new TimesheetRow(timesheetID, projectID, workPackage, emptyHours, notes));
+
+    }
+
+    public void addRow(TimesheetRow row) {
+        rows.add(row);
+    }
+
+    public void deleteLastRow() {
+        if (rows.size() > 0) {
+            rows.remove(rows.size() - 1);
+        }
+    }
+
+    @Override
+    public boolean equals(Object o) {
+
+        if (o == this) { 
+            return true; 
+        } 
+
+        if (!(o instanceof Timesheet)) { 
+            return false; 
+        } 
+
+        Timesheet c = (Timesheet) o; 
+
+        return c.getEmpNumber() == empNumber && c.getWeekEnding() == weekEnding;
+    } 
     
-    
-    
+    @Override
+    public String toString() {
+        return "Timesheet#" + timesheetID + " Week: " + weekEnding + " EmpNumber: " + empNumber + " Size: " + rows.size(); 
+    }
+
+
 }
+
+

@@ -62,4 +62,3 @@ INSERT INTO TimesheetRow(timesheetID, projectID, workPackage, sat, sun, mon, tue
 INSERT INTO TimesheetRow(timesheetID, projectID, workPackage, sat, sun, mon, tue, wed, thu, fri, notes) VALUES (1, 2, "WP2", 6.0, 7.0, 1.0, 2.0, 3.0, 4.0, 5.0, "notes2");
 INSERT INTO TimesheetRow(timesheetID, projectID, workPackage, sat, sun, mon, tue, wed, thu, fri, notes) VALUES (1, 3, "WP3", 6.0, 7.0, 1.0, 2.0, 3.0, 4.0, 5.0, "notes3");
 INSERT INTO TimesheetRow(timesheetID, projectID, workPackage, sat, sun, mon, tue, wed, thu, fri, notes) VALUES (1, 3, "WP33", 6.0, 7.0, 1.0, 2.0, 3.0, 4.0, 5.0, "notes33");
-
