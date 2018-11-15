@@ -13,6 +13,7 @@ import javax.inject.Named;
 
 import ca.bcit.infosys.employee.Credentials;
 import ca.bcit.infosys.employee.Employee;
+import deprecated.EmployeeDatabase;
 
 /**
  * 

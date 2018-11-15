@@ -1,4 +1,4 @@
-package ca.bcit.assignment1;
+package deprecated;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
