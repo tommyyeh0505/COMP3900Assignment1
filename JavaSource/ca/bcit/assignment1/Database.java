@@ -59,6 +59,51 @@ public class Database implements Serializable {
             pstmt.setString(4, user.getPassword());
             pstmt.setBoolean(5, user.isAdmin());
             
+            pstmt.executeUpdate();
+            
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    
+    public void updateUser(User user) {
+        try {
+            Connection connection = dataSource.getConnection();
+            
+            String sql = "UPDATE Users"
+                    + " SET username = ?,"
+                    + " empName = ?,"
+                    + " password = ?,"
+                    + " administrator = ?"
+                    + " WHERE empNumber = ?";
+
+            PreparedStatement pstmt = connection.prepareStatement(sql);
+            
+            pstmt.setString(1, user.getUsername());
+            pstmt.setString(2, user.getEmployeeName());
+            pstmt.setString(3, user.getPassword());
+            pstmt.setBoolean(4, user.isAdmin());
+            pstmt.setInt(5, user.getEmployeeNumber());
+            
+            pstmt.executeUpdate();
+            
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    
+    public void deleteUser(User user) {
+        try {
+            Connection connection = dataSource.getConnection();
+            
+            String sql = "DELETE FROM Users WHERE empNumber = ?";
+            
+            PreparedStatement pstmt = connection.prepareStatement(sql);
+            
+            pstmt.setInt(1, user.getEmployeeNumber());
+            
+            pstmt.executeUpdate();
+            
         } catch (Exception e) {
             e.printStackTrace();
         }
