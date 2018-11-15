@@ -30,8 +30,7 @@ CREATE TABLE Timesheet(
  empNumber int,
  weekNumber int, 
  weekEnding DATE,
- PRIMARY KEY (timesheetID),
- FOREIGN KEY (empNumber) REFERENCES Users(empNumber)
+ PRIMARY KEY (timesheetID)
 );
 
 
@@ -43,6 +42,7 @@ INSERT INTO Timesheet(empNumber, weekNumber, weekEnding) VALUES (4, 1, DATE '199
 INSERT INTO Timesheet(empNumber, weekNumber, weekEnding) VALUES (5, 1, DATE '1999-01-01');
 
 CREATE TABLE TimesheetRow(
+ timesheetRowID int NOT NULL AUTO_INCREMENT, 
  timesheetID int,
  projectID int, 
  workPackage VARCHAR(10), 
@@ -54,8 +54,7 @@ CREATE TABLE TimesheetRow(
  thu DECIMAL(2,1),
  fri DECIMAL(2,1),
  notes TEXT,
- FOREIGN KEY (timesheetID) REFERENCES timesheet(timesheetID),
- PRIMARY KEY (timesheetID, projectID, workPackage)
+ PRIMARY KEY (timesheetRowID)
 );
 
 INSERT INTO TimesheetRow(timesheetID, projectID, workPackage, sat, sun, mon, tue, wed, thu, fri, notes) VALUES (1, 1, "WP1", 6.0, 7.0, 1.0, 2.0, 3.0, 4.0, 5.0, "notes1");

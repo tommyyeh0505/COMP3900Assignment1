@@ -17,6 +17,7 @@ public class TimesheetRow {
     private String workPackage;
     private double[] hours;
     private String notes;
+    private int timesheetRowID;
    
     
     
@@ -35,7 +36,7 @@ public class TimesheetRow {
         this.timesheetID = timesheetID;
     }
     /**
-     * Constructs an objecct of type TimesheetRow.
+     * Constructs an objecct of type TimesheetRow.s
      * @param timesheetID
      * @param projectID
      * @param workPackage
@@ -44,11 +45,44 @@ public class TimesheetRow {
      */
     public TimesheetRow(int timesheetID, int projectID, String workPackage, double[] hours, String notes) {
         super();
+        this.timesheetRowID = -1; //DEFAULT VALUE
         this.timesheetID = timesheetID;
         this.projectID = projectID;
         this.workPackage = workPackage;
         this.hours = hours;
         this.notes = notes;
+    }
+    /**
+     * Constructs an objecct of type TimesheetRow.
+     * @param timesheetID
+     * @param projectID
+     * @param workPackage
+     * @param hours
+     * @param notes
+     * @param timesheetRowID
+     */
+    public TimesheetRow(int timesheetRowID, int timesheetID, int projectID, String workPackage, double[] hours, String notes) {
+        super();
+        this.timesheetID = timesheetID;
+        this.projectID = projectID;
+        this.workPackage = workPackage;
+        this.hours = hours;
+        this.notes = notes;
+        this.timesheetRowID = timesheetRowID;
+    }
+    /**
+     * Returns the {bare_field_name} for this TimesheetRow.
+     * @return the timesheetRowID
+     */
+    public int getTimesheetRowID() {
+        return timesheetRowID;
+    }
+    /**
+     * Sets the timesheetRowID for this TimesheetRow
+     * @param timesheetRowID the timesheetRowID to set
+     */
+    public void setTimesheetRowID(int timesheetRowID) {
+        this.timesheetRowID = timesheetRowID;
     }
     /**
      * Returns the {bare_field_name} for this TimesheetRow.

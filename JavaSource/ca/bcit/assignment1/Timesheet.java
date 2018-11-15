@@ -2,6 +2,7 @@ package ca.bcit.assignment1;
 
 import java.sql.Date;
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Timesheet.
@@ -144,6 +145,18 @@ public class Timesheet {
     @Override
     public String toString() {
         return "Timesheet#" + timesheetID + " Week: " + weekEnding + " EmpNumber: " + empNumber + " Size: " + rows.size(); 
+    }
+    /**
+     * @param rows2
+     */
+    public void populateTimesheet(List<TimesheetRow> allRows) {
+
+        for(TimesheetRow row : allRows) {
+            if(row.getTimesheetID() == timesheetID) {
+                rows.add(row);
+            }
+        }
+        
     }
 
 
