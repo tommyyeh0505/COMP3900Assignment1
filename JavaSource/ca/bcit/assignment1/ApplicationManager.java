@@ -2,6 +2,7 @@ package ca.bcit.assignment1;
 
 import java.io.Serializable;
 
+import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 import javax.enterprise.context.SessionScoped;
 import javax.faces.context.FacesContext;
@@ -30,6 +31,11 @@ public class ApplicationManager implements Serializable {
      */
     @Inject
     private EmployeeManager employeeManager;
+    
+    @PostConstruct
+    public void init() {
+        
+    }
 
     /**
      * Gets the employeeManager object.
