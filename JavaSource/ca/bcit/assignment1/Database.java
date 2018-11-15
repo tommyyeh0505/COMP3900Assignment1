@@ -16,7 +16,28 @@ public class Database implements Serializable {
 
     @Resource(mappedName = "java:jboss/datasources/assignment2")
     private DataSource dataSource;
+    
+    public void addUser(User user) {
+        try {
+            Connection connection = dataSource.getConnection();
+            
+            String sql = "INSERT INTO Users VALUES(?, ?, ?, ?, ?)";
 
+            PreparedStatement pstmt = connection.prepareStatement(sql);
+            
+            pstmt.setInt(1, user.getEmployeeNumber());
+            pstmt.setString(2, user.getUsername());
+            pstmt.setString(3, user.getEmployeeName());
+            pstmt.setString(4, user.getPassword());
+            pstmt.setBoolean(5, user.isAdmin());
+            
+            pstmt.executeUpdate();
+            
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    
     public List<User> getUsers() {
         List<User> users = new ArrayList<User>();
         
@@ -43,27 +64,6 @@ public class Database implements Serializable {
         }
 
         return users;
-    }
-    
-    public void addUser(User user) {
-        try {
-            Connection connection = dataSource.getConnection();
-            
-            String sql = "INSERT INTO Users VALUES(?, ?, ?, ?, ?)";
-
-            PreparedStatement pstmt = connection.prepareStatement(sql);
-            
-            pstmt.setInt(1, user.getEmployeeNumber());
-            pstmt.setString(2, user.getUsername());
-            pstmt.setString(3, user.getEmployeeName());
-            pstmt.setString(4, user.getPassword());
-            pstmt.setBoolean(5, user.isAdmin());
-            
-            pstmt.executeUpdate();
-            
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
     }
     
     public void updateUser(User user) {
@@ -107,5 +107,74 @@ public class Database implements Serializable {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+    
+    public void addTimesheet(Timesheet timesheet) {
+        try {
+            Connection connection = dataSource.getConnection();
+            
+            String sql = "INSERT INTO Timesheet VALUES(?, ?, ?, ?)";
+
+            PreparedStatement pstmt = connection.prepareStatement(sql);
+            pstmt.setInt(2, timesheet.getEmpNumber());
+            pstmt.setInt(3, timesheet.getWeekNumber());
+            pstmt.setString(4, timesheet.getWeekEnding().toString());
+            
+            pstmt.executeUpdate();
+            
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    
+    public List<Timesheet> getTimesheets() {
+        return null;
+    }
+    
+    public void updateTimesheet(Timesheet timesheet) {
+        
+    }
+    
+    public void deleteTimesheet(Timesheet timesheet) {
+        try {
+            Connection connection = dataSource.getConnection();
+            
+            String sql = "DELETE FROM Timesheet WHERE timesheetid = ?";
+            
+            PreparedStatement pstmt = connection.prepareStatement(sql);
+            
+            pstmt.setInt(1, 0); // timesheet id
+            
+            pstmt.executeUpdate();
+            
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    
+    public void addTimesheetRow(TimesheetRow row) {
+        try {
+            Connection connection = dataSource.getConnection();
+            
+            String sql = "INSERT INTO timesheetrow VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+            
+            PreparedStatement pstmt = connection.prepareStatement(sql);
+            
+            
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    
+    public List<TimesheetRow> getTimesheetRows() {
+        return null;
+    }
+    
+    public void updateTimesheetRow(TimesheetRow row) {
+        
+    }
+    
+    public void deleteTimesheetRow(Timesheet row) {
+        
     }
 }
