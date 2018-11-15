@@ -21,15 +21,14 @@ public class Database implements Serializable {
         try {
             Connection connection = dataSource.getConnection();
             
-            String sql = "INSERT INTO Users VALUES(?, ?, ?, ?, ?)";
+            String sql = "INSERT INTO Users(username, empName, password, administrator) VALUES(?, ?, ?, ?)";
 
             PreparedStatement pstmt = connection.prepareStatement(sql);
             
-            pstmt.setInt(1, user.getEmployeeNumber());
-            pstmt.setString(2, user.getUsername());
-            pstmt.setString(3, user.getEmployeeName());
-            pstmt.setString(4, user.getPassword());
-            pstmt.setBoolean(5, user.isAdmin());
+            pstmt.setString(1, user.getUsername());
+            pstmt.setString(2, user.getEmployeeName());
+            pstmt.setString(3, user.getPassword());
+            pstmt.setBoolean(4, user.isAdmin());
             
             pstmt.executeUpdate();
             
@@ -113,12 +112,12 @@ public class Database implements Serializable {
         try {
             Connection connection = dataSource.getConnection();
             
-            String sql = "INSERT INTO Timesheet VALUES(?, ?, ?, ?)";
+            String sql = "INSERT INTO Timesheet(empNumber, weekNumber, weekEnding) VALUES(?, ?, ?)";
 
             PreparedStatement pstmt = connection.prepareStatement(sql);
-            pstmt.setInt(2, timesheet.getEmpNumber());
-            pstmt.setInt(3, timesheet.getWeekNumber());
-            pstmt.setString(4, timesheet.getWeekEnding().toString());
+            pstmt.setInt(1, timesheet.getEmpNumber());
+            pstmt.setInt(2, timesheet.getWeekNumber());
+            pstmt.setString(3, timesheet.getWeekEnding().toString());
             
             pstmt.executeUpdate();
             
@@ -128,7 +127,12 @@ public class Database implements Serializable {
     }
     
     public List<Timesheet> getTimesheets() {
-        return null;
+        List<Timesheet> timesheets = new ArrayList<Timesheet>();
+        
+        
+        return timesheets;
+
+    
     }
     
     public void updateTimesheet(Timesheet timesheet) {
@@ -160,6 +164,20 @@ public class Database implements Serializable {
             
             PreparedStatement pstmt = connection.prepareStatement(sql);
             
+            pstmt.setInt(1, row.getTimesheetID());
+            pstmt.setInt(2, row.getProjectID());
+            pstmt.setString(3, row.getWorkPackage());
+            pstmt.setDouble(4, row.getSat());
+            pstmt.setDouble(5, row.getSun());
+            pstmt.setDouble(6, row.getMon());
+            pstmt.setDouble(7, row.getTue());
+            pstmt.setDouble(8, row.getWed());
+            pstmt.setDouble(9, row.getThu());
+            pstmt.setDouble(10, row.getFri());
+            pstmt.setString(11, row.getNotes());
+            
+            pstmt.executeUpdate();
+
             
         } catch (Exception e) {
             e.printStackTrace();
